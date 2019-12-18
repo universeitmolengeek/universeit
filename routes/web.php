@@ -23,5 +23,6 @@ Route::get('/nav', 'ContentController@indexNav');
 
 
 Route::get('/bannerHome', 'ContentController@indexBannerHome');
+Route::get('/gallery', 'ContentController@indexBannerGallery');
 
 

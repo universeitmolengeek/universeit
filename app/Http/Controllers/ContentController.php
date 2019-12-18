@@ -21,6 +21,11 @@ class ContentController extends Controller
 
   
     public function indexBannerHome()
+    public function indexBannerGallery(){
+        $bannerItem = Content::find(13);
+        return $bannerItem;
+        
+    }
     {
         $bannerItems = Content::findMany([8,9]);
 
