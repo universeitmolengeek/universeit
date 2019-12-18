@@ -23,6 +23,27 @@ Route::get('/nav', 'ContentController@indexNav');
 
 
 Route::get('/bannerHome', 'ContentController@indexBannerHome');
+
+
+Route::get('/bannerContact', 'ContentController@indexBannerContact');
+
+
 Route::get('/gallery', 'ContentController@indexBannerGallery');
 
 
+Route::get('/newsTitle', 'ContentController@indexBannerNews');
+
+
+Route::get('/subtitleNews', 'ContentController@indexBannerNews');
+
+
+Route::get('/newsletter', 'ContentController@indexNewsletter');
+
+
+Route::get('/footer', 'ContentController@indexFooter');
+
+
+Route::get('/contact', 'ContentController@indexContact');
+
+
+Route::get('/teachersTitle', 'ContentController@indexBannerTeachers');

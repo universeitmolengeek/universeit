@@ -40129,9 +40129,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "About", function() { return About; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
 
 var About = function About() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState2 = _slicedToArray(_useState, 2),
+      aboutItems = _useState2[0],
+      setAboutItems = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true),
+      _useState4 = _slicedToArray(_useState3, 2),
+      loader = _useState4[0],
+      setLoader = _useState4[1];
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/about').then(function (response) {
+      setAboutItems(response.data);
+      setLoader(false);
+    });
+  }, []);
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, !loader && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
     "class": "info-area pb-120 mt-5 d-flex align-items-center",
     id: "sectionAbout"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -40146,7 +40173,7 @@ var About = function About() {
     alt: ""
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     "class": "col-lg-6 info-area-right"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Who we are to Serave the nation"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "inappropriate behavior is often laughed off as \"boys will be boys,\" women face higher conduct standards especially in the workplace. That\u2019s why it\u2019s crucial that, as women, our behavior on the job is beyond reproach."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "inappropriate behavior is often laughed off as \"boys will be boys,\" women face higher conduct standards especially in the workplace. That\u2019s why it\u2019s crucial that, as women, our behavior on the job is beyond reproach. inappropriate behavior is often laughed off as \"boys will be boys,\" women face higher conduct standards especially in the workplace. That\u2019s why it\u2019s crucial that, as women, our behavior on the job is beyond reproach."))))));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, aboutItems[0].content), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, ">", aboutItems[1].content), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, ">", aboutItems[2].content))))));
 };
 
 /***/ }),
@@ -40163,8 +40190,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Event", function() { return Event; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_calendar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-calendar */ "./node_modules/react-calendar/dist/entry.js");
-/* harmony import */ var react_calendar__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_calendar__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_calendar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-calendar */ "./node_modules/react-calendar/dist/entry.js");
+/* harmony import */ var react_calendar__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_calendar__WEBPACK_IMPORTED_MODULE_2__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
@@ -40189,7 +40216,7 @@ var Event = function Event() {
     className: "row"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-6"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_calendar__WEBPACK_IMPORTED_MODULE_1___default.a, {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_calendar__WEBPACK_IMPORTED_MODULE_2___default.a, {
     value: date // className={}
     // tileClassName={({ date, view }) =>view === 'month' && dates.find( element => element.getDate()=== date.getDate() && element.getMonth) ? 'bg-success' : null}
 
@@ -40399,8 +40426,8 @@ var News = function News() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Applications/MAMP/htdocs/dossierLaravel/universeIT/universeIT/universeit/universeit/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/dossierLaravel/universeIT/universeIT/universeit/universeit/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/ryan/Code/Stage/laravel/universit/universeit/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/ryan/Code/Stage/laravel/universit/universeit/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
