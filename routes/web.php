@@ -22,3 +22,6 @@ Route::get('/contact', function () {
 Route::get('/nav', 'ContentController@indexNav');
 
 
+Route::get('/bannerHome', 'ContentController@indexBannerHome');
+
+

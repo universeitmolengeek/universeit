@@ -34000,6 +34000,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Banner", function() { return Banner; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+
 
 var Banner = function Banner(_ref) {
   var bannerType = _ref.bannerType;
@@ -34362,12 +34365,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MainBanner", function() { return MainBanner; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Navbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Navbar */ "./resources/js/components/header/Navbar.jsx");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 var MainBanner = function MainBanner(_ref) {
   var mainBannerType = _ref.mainBannerType;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, mainBannerType === 1 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      bannerItems = _useState2[0],
+      setBannerItems = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true),
+      _useState4 = _slicedToArray(_useState3, 2),
+      loader = _useState4[0],
+      setLoader = _useState4[1];
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    if (mainBannerType === 1) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/bannerHome').then(function (response) {
+        setBannerItems(response.data);
+        setLoader(false);
+      });
+    } else {}
+  }, []);
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, mainBannerType === 1 && !loader ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
     "class": "banner-area relative",
     id: "home"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -34380,10 +34411,10 @@ var MainBanner = function MainBanner(_ref) {
     "class": "banner-content col-lg-12 col-md-12 d-flex flex-column justify-content-center align-items-center"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     "class": "text-uppercase text-mainBanner"
-  }, "Universe it"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  }, bannerItems[0].content), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "#",
     "class": "primary-btn text-uppercase mt-5 custom-btn-mainBanner p-4"
-  }, "Commencer"))))) : null, mainBannerType === 2 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+  }, " ", bannerItems[1].content))))) : null, mainBannerType === 2 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
     "class": "banner-area relative about-banner",
     id: "home"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -34473,7 +34504,7 @@ var Navbar = function Navbar() {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "logo"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "index"
+    href: "/"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: "/img/logoUniverseit.png",
     alt: "logo",
