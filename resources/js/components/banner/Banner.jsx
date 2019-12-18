@@ -46,7 +46,7 @@ export const Banner = ({bannerType}) =>{
                 </div>	
             </section>) : null }
 
-            {bannerType ===2 ? (<section class="cta-one-area relative section-gap custom-height-banner d-flex align-items-center">
+            {bannerType ===2 && !loader ? (<section class="cta-one-area relative section-gap custom-height-banner d-flex align-items-center">
             <div class="container">
                 <div class="overlay overlay-bg"></div>
                 <div class="row justify-content-center">
@@ -57,7 +57,7 @@ export const Banner = ({bannerType}) =>{
             </div>	
         </section>) : null }
 
-        {bannerType === 3 ? (<section class="cta-one-area relative section-gap custom-height-banner d-flex align-items-center">
+        {bannerType === 3 && !loader ? (<section class="cta-one-area relative section-gap custom-height-banner d-flex align-items-center">
         <div class="container">
             <div class="overlay overlay-bg"></div>
             <div class="row justify-content-center">

@@ -16,8 +16,7 @@ export const About = () =>{
     
     return(
         <div>
-           { !loader &&
-            <section class="info-area pb-120 mt-5 d-flex align-items-center" id="sectionAbout">
+           { !loader &&(<section class="info-area pb-120 mt-5 d-flex align-items-center" id="sectionAbout">
                 <div class="container-fluid">
                     <div class="row align-items-center">
                         <div class="col-lg-6 no-padding info-area-left">
@@ -33,7 +32,8 @@ export const About = () =>{
                         </div>
                     </div>
                 </div>	
-            </section>}
+            </section>)
+            }
         </div>
     )
 }

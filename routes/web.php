@@ -43,7 +43,9 @@ Route::get('/newsletter', 'ContentController@indexNewsletter');
 Route::get('/footer', 'ContentController@indexFooter');
 
 
-Route::get('/contact', 'ContentController@indexContact');
+Route::get('/contactItems', 'ContentController@indexContact');
 
 
 Route::get('/teachersTitle', 'ContentController@indexBannerTeachers');
+
+Route::get('/about', 'ContentController@indexAbout');
