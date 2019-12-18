@@ -20,7 +20,7 @@ export const Navbar = () => {
                 <div class="container main-menu">
                     <div class="row align-items-center justify-content-between d-flex">
                         <div id="logo">
-                            <a href="index"><img src="/img/logoUniverseit.png" alt="logo" width="75px" /></a>
+                            <a href="/"><img src="/img/logoUniverseit.png" alt="logo" width="75px" /></a>
                         </div>
                         <nav id="nav-menu-container">
                             <ul class="nav-menu">
