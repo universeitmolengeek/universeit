@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react';
 import axios from 'axios';
 
 
@@ -16,12 +16,24 @@ export const Banner = ({bannerType}) =>{
                 setLoader(false);
             })
         }
+        if (bannerType === 2) {
+            axios.get('/newsTitle').then(response => {
+                setBannerItem(response.data);
+                setLoader(false);
+            })
+        }
+        if (bannerType === 3) {
+            axios.get('/teacherTitle').then(response => {
+                setBannerItem(response.data);
+                setLoader(false);
+            })
+        }
     },[])
 
 
     return(
         <div>
-            {bannerType ===1 ? (<section class="search-course-area relative py-5 custom-height-banner d-flex align-items-center"> 
+            {bannerType ===1 && !loader ? (<section class="search-course-area relative py-5 custom-height-banner d-flex align-items-center"> 
                 <div class="overlay overlay-bg custom-overlay"></div>
                 <div class="container">
                     <div class="row ">
@@ -39,7 +51,7 @@ export const Banner = ({bannerType}) =>{
                 <div class="overlay overlay-bg"></div>
                 <div class="row justify-content-center">
                     <div class="wrap">
-                        <h1 class="text-white title-banner background-color-blue p-2">Les Nouveautés</h1>							
+                        <h1 class="text-white title-banner background-color-blue p-2">{bannerItem.content}</h1>							
                     </div>					
                 </div>
             </div>	
@@ -50,7 +62,7 @@ export const Banner = ({bannerType}) =>{
             <div class="overlay overlay-bg"></div>
             <div class="row justify-content-center">
                 <div class="wrap">
-                    <h1 class="text-white title-banner background-color-blue p-2">Nos Professeurs</h1>							
+                    <h1 class="text-white title-banner background-color-blue p-2">{bannerItem.content}</h1>							
                 </div>					
             </div>
         </div>	

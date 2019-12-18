@@ -16,8 +16,15 @@ export const MainBanner = ({ mainBannerType }) => {
                 setLoader(false);
 
             })
-        } else {
+        }
+        if(mainBannerType === 2){
+            axios.get('/bannerContact').then(response => {
+                               
+                setBannerItems(response.data);
 
+                setLoader(false);
+
+            })
         }
     },[])
 
@@ -43,7 +50,7 @@ export const MainBanner = ({ mainBannerType }) => {
                     <div class="row d-flex align-items-center justify-content-center">
                         <div class="about-content col-lg-12">
                             <h1 class="text-white">
-                                Contactez-Nous
+                            {bannerItems[0].content}
                     </h1>
                         </div>
                     </div>
