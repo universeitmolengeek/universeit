@@ -51,6 +51,11 @@ Route::get('/teachersTitle', 'ContentController@indexBannerTeachers');
 
 Route::get('/about', 'ContentController@indexAbout');
 
+Route::get('/content/{content}', 'ContentController@show');
+
+
+Route::put('/content/{content}', 'ContentController@update');
+
 Auth::routes();
 
 Route::get('/home', function() {

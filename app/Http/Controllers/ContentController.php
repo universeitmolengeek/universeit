@@ -88,4 +88,17 @@ class ContentController extends Controller
         return $teachersTitle;
     }
 
+    public function show(Content $content){
+
+        return $content;
+
+    }
+
+    public function update(Content $content){        
+
+        $content->content = request('content');
+
+        $content->save();
+    }
+
 }
