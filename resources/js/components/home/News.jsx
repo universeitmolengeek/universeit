@@ -19,13 +19,13 @@ export const News = () => {
 
     return (
         <div>{
-            !loader &&
+            
             <section class="popular-course-area section-gap d-flex align-items-center" id="sectionNews">
                 <div class="container">
                     <div class="row d-flex justify-content-center">
                         <div class="menu-content pb-70 col-lg-8">
                             <div class="title text-center">
-                                <h1 class="mb-10">{subTitleNews.content}</h1>
+                                <h1 class="mb-10">{!loader && subTitleNews.content}</h1>
                             </div>
                         </div>
                     </div>

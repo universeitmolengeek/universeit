@@ -8,12 +8,12 @@ export const Newsletter = () => {
     const [loader, setLoader] = useState(true);
 
     useEffect(() => {
-        if (bannerType === 1) {
-            axios.get('/newsletter').then(response => {
-                setNewsletterTitle(response.data);
-                setLoader(false);
-            })
-        }
+
+        axios.get('/newsletter').then(response => {
+            setNewsletterTitle(response.data);
+            setLoader(false);
+        })
+
     }, [])
 
     return (
