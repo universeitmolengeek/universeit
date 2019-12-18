@@ -22,6 +22,7 @@
         "sass-loader": "^7.1.0"
     },
     "dependencies": {
+        "react-calendar": "^2.19.2",
         "react-router-dom": "^5.1.2"
     }
 }
