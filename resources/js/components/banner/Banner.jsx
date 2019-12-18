@@ -1,7 +1,9 @@
-import React from 'react'
+import React from 'react';
+import axios from 'axios';
 
 
 export const Banner = ({bannerType}) =>{
+
     return(
         <div>
             {bannerType ===1 ? (<section class="search-course-area relative py-5 custom-height-banner d-flex align-items-center"> 
