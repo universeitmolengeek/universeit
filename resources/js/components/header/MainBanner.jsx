@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 export const MainBanner = ({ mainBannerType }) => {
@@ -7,26 +7,26 @@ export const MainBanner = ({ mainBannerType }) => {
 
     const [loader, setLoader] = useState(true);
 
-    useEffect(()=>{
-        if(mainBannerType === 1){
+    useEffect(() => {
+        if (mainBannerType === 1) {
             axios.get('/bannerHome').then(response => {
-                               
+
                 setBannerItems(response.data);
 
                 setLoader(false);
 
             })
         }
-        if(mainBannerType === 2){
+        if (mainBannerType === 2) {
             axios.get('/bannerContact').then(response => {
-                               
+
                 setBannerItems(response.data);
 
                 setLoader(false);
 
             })
         }
-    },[])
+    }, [])
 
     return (
         <>
@@ -44,14 +44,14 @@ export const MainBanner = ({ mainBannerType }) => {
                 </div>
             </section>) : null}
 
-            {mainBannerType === 2 ? (<section class="banner-area relative about-banner" id="home">
+            {mainBannerType === 2 && !loader ? (<section class="banner-area relative about-banner" id="home">
                 <div class="overlay overlay-bg"></div>
                 <div class="container">
                     <div class="row d-flex align-items-center justify-content-center">
                         <div class="about-content col-lg-12">
                             <h1 class="text-white">
-                            {bannerItems[0].content}
-                    </h1>
+                                {bannerItems.content}
+                            </h1>
                         </div>
                     </div>
                 </div>
