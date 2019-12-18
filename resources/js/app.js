@@ -14,3 +14,6 @@
 
 require('./components/Home');
 require('./components/Contact');
+
+// Admin
+require('./components/admin/shareContain/NavBarContain');

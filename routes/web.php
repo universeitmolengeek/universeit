@@ -48,4 +48,12 @@ Route::get('/contactItems', 'ContentController@indexContact');
 
 Route::get('/teachersTitle', 'ContentController@indexBannerTeachers');
 
+
 Route::get('/about', 'ContentController@indexAbout');
+
+Auth::routes();
+
+Route::get('/home', function() {
+    return view('home');
+})->name('home')->middleware('auth');
+
