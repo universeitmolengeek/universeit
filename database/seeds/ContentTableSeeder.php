@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Content;
+
 class ContentTableSeeder extends Seeder
 {
     /**
@@ -59,5 +60,11 @@ class ContentTableSeeder extends Seeder
         //END HOME HEADER CONTENT
 
         //START ABOUT CONTENT
+
+        Content::create([
+            "placement"=>"Titre section Présentation",
+            "content"=>"Who we are to Serave the nation",
+        ]);
+
     }
 }
