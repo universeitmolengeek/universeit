@@ -19,4 +19,6 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
+Route::get('/nav', 'ContentController@indexNav');
+
 

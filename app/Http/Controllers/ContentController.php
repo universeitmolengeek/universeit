@@ -12,9 +12,10 @@ class ContentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexNav()
     {
-        //
+        $navLinks = Content::all()->take(7);
+        return $navLinks;
     }
 
     /**
