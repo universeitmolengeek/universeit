@@ -1,8 +1,22 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 
 export const About = () =>{
+
+    const [aboutItems, setAboutItems] = useState();
+    const [loader, setLoader] = useState(true);
+
+    useEffect(()=>{
+        axios.get('/about').then(response=>{
+            setAboutItems(response.data);
+            setLoader(false);
+        })
+    },[])
+
+    
     return(
         <div>
+           { !loader &&
             <section class="info-area pb-120 mt-5 d-flex align-items-center" id="sectionAbout">
                 <div class="container-fluid">
                     <div class="row align-items-center">
@@ -10,17 +24,16 @@ export const About = () =>{
                             <img class="img-fluid" src="img/about-img.jpg" alt=""/>
                         </div>
                         <div class="col-lg-6 info-area-right">
-                            <h1>Who we are
-                            to Serave the nation</h1>
-                            <p>inappropriate behavior is often laughed off as "boys will be boys," women face higher conduct standards especially in the workplace. That’s why it’s crucial that, as women, our behavior on the job is beyond reproach.</p>
+                            <h1>{aboutItems[0].content}</h1>
+                            <p>>{aboutItems[1].content}</p>
                             <br/>
                             <p>
-                                inappropriate behavior is often laughed off as "boys will be boys," women face higher conduct standards especially in the workplace. That’s why it’s crucial that, as women, our behavior on the job is beyond reproach. inappropriate behavior is often laughed off as "boys will be boys," women face higher conduct standards especially in the workplace. That’s why it’s crucial that, as women, our behavior on the job is beyond reproach.
+                            >{aboutItems[2].content}
                             </p>
                         </div>
                     </div>
                 </div>	
-            </section>
+            </section>}
         </div>
     )
 }
