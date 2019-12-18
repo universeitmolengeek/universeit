@@ -24,10 +24,10 @@ export const About = () =>{
                         </div>
                         <div class="col-lg-6 info-area-right">
                             <h1>{aboutItems[0].content}</h1>
-                            <p>>{aboutItems[1].content}</p>
+                            <p>{aboutItems[1].content}</p>
                             <br/>
                             <p>
-                            >{aboutItems[2].content}
+                            {aboutItems[2].content}
                             </p>
                         </div>
                     </div>

@@ -23,7 +23,7 @@ export const Banner = ({bannerType}) =>{
             })
         }
         if (bannerType === 3) {
-            axios.get('/teacherTitle').then(response => {
+            axios.get('/teachersTitle').then(response => {
                 setBannerItem(response.data);
                 setLoader(false);
             })

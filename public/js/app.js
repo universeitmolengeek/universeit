@@ -39553,7 +39553,7 @@ var Banner = function Banner(_ref) {
     }
 
     if (bannerType === 3) {
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/teacherTitle').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/teachersTitle').then(function (response) {
         setBannerItem(response.data);
         setLoader(false);
       });
@@ -39612,6 +39612,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContactSection", function() { return ContactSection; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
 
 var myStyle = {
   width: '100%',
@@ -39624,7 +39635,23 @@ var alert = {
   textAlign: 'left'
 };
 var ContactSection = function ContactSection() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      contactItems = _useState2[0],
+      setContactItems = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true),
+      _useState4 = _slicedToArray(_useState3, 2),
+      loader = _useState4[0],
+      setLoader = _useState4[1];
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/contactItems').then(function (response) {
+      setContactItems(response.data);
+      setLoader(false);
+    });
+  }, []);
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
     "class": "contact-page-area section-gap"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     "class": "container"
@@ -39644,7 +39671,7 @@ var ContactSection = function ContactSection() {
     "class": "lnr lnr-home"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     "class": "contact-details"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Binghamton, New York"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "4343 Hinkle Deegan Lake Road"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, !loader && contactItems[0].content), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, !loader && contactItems[1].content))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     "class": "single-contact-address d-flex flex-row"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     "class": "icon"
@@ -39652,7 +39679,7 @@ var ContactSection = function ContactSection() {
     "class": "lnr lnr-phone-handset"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     "class": "contact-details"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "00 (958) 9865 562"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Mon to Fri 9am to 6 pm"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, !loader && contactItems[2].content), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, !loader && contactItems[3].content))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     "class": "single-contact-address d-flex flex-row"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     "class": "icon"
@@ -39660,7 +39687,7 @@ var ContactSection = function ContactSection() {
     "class": "lnr lnr-envelope"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     "class": "contact-details"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "support@colorlib.com"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Send us your query anytime!")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, !loader && contactItems[4].content), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, !loader && contactItems[5].content)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     "class": "col-lg-8"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     "class": "form-area contact-form text-right",
@@ -39673,7 +39700,7 @@ var ContactSection = function ContactSection() {
     "class": "col-lg-6 form-group"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     name: "name",
-    placeholder: "Enter your name",
+    placeholder: !loader && contactItems[6].content,
     onFocus: "this.placeholder = ''",
     onBlur: "this.placeholder = 'Enter your name'",
     "class": "common-input mb-20 form-control",
@@ -39681,7 +39708,7 @@ var ContactSection = function ContactSection() {
     type: "text"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     name: "email",
-    placeholder: "Enter email address",
+    placeholder: !loader && contactItems[7].content,
     pattern: "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{1,63}$",
     onFocus: "this.placeholder = ''",
     onBlur: "this.placeholder = 'Enter email address'",
@@ -39690,7 +39717,7 @@ var ContactSection = function ContactSection() {
     type: "email"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     name: "subject",
-    placeholder: "Enter subject",
+    placeholder: !loader && contactItems[8].content,
     onFocus: "this.placeholder = ''",
     onBlur: "this.placeholder = 'Enter subject'",
     "class": "common-input mb-20 form-control",
@@ -39701,7 +39728,7 @@ var ContactSection = function ContactSection() {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
     "class": "common-textarea form-control",
     name: "message",
-    placeholder: "Enter Messege",
+    placeholder: !loader && contactItems[9].content,
     onFocus: "this.placeholder = ''",
     onBlur: "this.placeholder = 'Enter Messege'",
     required: ""
@@ -40028,7 +40055,7 @@ var MainBanner = function MainBanner(_ref) {
   }, bannerItems[0].content), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "#",
     "class": "primary-btn text-uppercase mt-5 custom-btn-mainBanner p-4"
-  }, " ", bannerItems[1].content))))) : null, mainBannerType === 2 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+  }, " ", bannerItems[1].content))))) : null, mainBannerType === 2 && !loader ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
     "class": "banner-area relative about-banner",
     id: "home"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -40041,7 +40068,7 @@ var MainBanner = function MainBanner(_ref) {
     "class": "about-content col-lg-12"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     "class": "text-white"
-  }, bannerItems[0].content))))) : null);
+  }, bannerItems.content))))) : null);
 };
 
 /***/ }),
@@ -40198,7 +40225,7 @@ var About = function About() {
     alt: ""
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     "class": "col-lg-6 info-area-right"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, aboutItems[0].content), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, ">", aboutItems[1].content), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, ">", aboutItems[2].content))))));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, aboutItems[0].content), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, aboutItems[1].content), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, aboutItems[2].content))))));
 };
 
 /***/ }),
