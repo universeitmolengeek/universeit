@@ -51,7 +51,7 @@ class ContentTableSeeder extends Seeder
 
         Content::create([
             "placement"=>"Titre banière principale home",
-            "content"=>"UNIVERSEIT",
+            "content"=>"UNIVERSE IT",
         ]);
 
         Content::create([

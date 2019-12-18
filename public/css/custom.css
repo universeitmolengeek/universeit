@@ -9,3 +9,7 @@
 #sectionTeachers {
     height: 100vh;
 }
+
+.react-calendar {
+    width: 500px !important;
+}
