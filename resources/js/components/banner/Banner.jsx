@@ -1,7 +1,24 @@
 import React from 'react'
+import axios from 'axios';
+
 
 
 export const Banner = ({bannerType}) =>{
+
+    const [bannerItem, setBannerItem] = useState();
+
+    const [loader, setLoader] = useState(true);
+
+    useEffect(()=>{
+        if (bannerType === 1) {
+            axios.get('/gallery').then(response => {
+                setBannerItem(response.data);
+                setLoader(false);
+            })
+        }
+    },[])
+
+
     return(
         <div>
             {bannerType ===1 ? (<section class="search-course-area relative py-5 custom-height-banner d-flex align-items-center"> 
@@ -10,7 +27,7 @@ export const Banner = ({bannerType}) =>{
                     <div class="row ">
                         <div class="col-lg-12 col-md-12 search-course-left d-flex justify-content-center">
                             <h1 class="text-white title-banner background-color-orange p-2">
-                                Notre Galerie
+                                {bannerItem.content}
                             </h1>
                         </div>
                     </div>

@@ -18,6 +18,12 @@ class ContentController extends Controller
         return $navLinks;
     }
 
+    public function indexBannerGallery(){
+        $bannerItem = Content::find(13);
+        return $bannerItem;
+        
+    }
+
     /**
      * Show the form for creating a new resource.
      *
