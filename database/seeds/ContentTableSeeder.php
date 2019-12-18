@@ -226,6 +226,66 @@ class ContentTableSeeder extends Seeder
         ]);
         // END CONTACT HEADER CONTENT
 
+        // START CONTACT FORM CONTENT
+        Content::create([
+            "placement"=>"Titre adresse formulaire de contact",
+            "content"=>"Binghamton, New York",
+        ]);
+
+        Content::create([
+            "placement"=>"Contenu adresse formulaire de contact",
+            "content"=>"4343 Hinkle Deegan Lake Road",
+        ]);
+
+        Content::create([
+            "placement"=>"Titre numéro formulaire de contact",
+            "content"=>"00 (958) 9865 562",
+        ]);
+
+        Content::create([
+            "placement"=>"Contenu numéro formulaire de contact",
+            "content"=>"Mon to Fri 9am to 6 pm",
+        ]);
+
+        Content::create([
+            "placement"=>"Titre email formulaire de contact",
+            "content"=>"support@colorlib.com",
+        ]);
+
+        Content::create([
+            "placement"=>"Contenu email formulaire de contact",
+            "content"=>"Send us your query anytime!",
+        ]);
+
+        Content::create([
+            "placement"=>"Premier input placehoder formulaire de contact",
+            "content"=>"Entrez votre nom",
+        ]);
+
+        Content::create([
+            "placement"=>"Deuxième input placehoder formulaire de contact",
+            "content"=>"Entrez votre email",
+        ]);
+
+        Content::create([
+            "placement"=>"Troisième input placehoder formulaire de contact",
+            "content"=>"Entrez le sujet",
+        ]);
+
+        Content::create([
+            "placement"=>"Quatrième input placehoder formulaire de contact",
+            "content"=>"Entrez le message",
+        ]);
+        // START CONTACT FORM CONTENT
+
+        // START TEACHER CONTENT
+        Content::create([
+            "placement"=>"Titre section professeur",
+            "content"=>"Nos Professeurs",
+        ]);
+        // END TEACHER CONTENT
+
+
 
 
     }   
