@@ -182,54 +182,60 @@ return [
 
         [
             'text' => 'Barre de navigation',
-            'url'  => 'admin/settings',
+            'url'  => 'navBarContent',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'Header de la section Home',
-            'url'  => 'admin/settings',
+            'url'  => 'headerHomeContent',
             'icon' => 'fas fa-fw fa-user',
         ],
 
         [
             'text' => 'Header de la section Contact',
-            'url'  => 'admin/settings',
+            'url'  => 'headerContactContent',
             'icon' => 'fas fa-fw fa-user',
         ],
 
         [
             'text' => 'Contenu Galerie',
-            'url'  => 'admin/settings',
+            'url'  => 'galleryContent',
+            'icon' => 'fas fa-fw fa-lock',
+        ],
+
+        [
+            'text' => 'Contenu Présentation',
+            'url'  => 'aboutContent',
             'icon' => 'fas fa-fw fa-lock',
         ],
 
         [
             'text' => 'Contenu Nouveautés',
-            'url'  => 'admin/settings',
+            'url'  => 'newsContent',
             'icon' => 'fas fa-fw fa-lock',
         ],
 
         [
             'text' => 'Contenu Newsletter',
-            'url'  => 'admin/settings',
+            'url'  => 'newsletterContent',
             'icon' => 'fas fa-fw fa-lock',
         ],
 
         [
             'text' => 'Contenu Footer',
-            'url'  => 'admin/settings',
+            'url'  => 'footerContent',
             'icon' => 'fas fa-fw fa-lock',
         ],
 
         [
             'text' => 'Contenu Formulaire contact',
-            'url'  => 'admin/settings',
+            'url'  => 'formContactContent',
             'icon' => 'fas fa-fw fa-lock',
         ],
 
         [
             'text' => 'Contenu Professeur',
-            'url'  => 'admin/settings',
+            'url'  => 'teachersContent',
             'icon' => 'fas fa-fw fa-lock',
         ],
 

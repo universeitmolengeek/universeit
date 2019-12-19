@@ -62,3 +62,42 @@ Route::get('/home', function() {
     return view('home');
 })->name('home')->middleware('auth');
 
+Route::get('/navBarContent', function() {
+    return view('admin.content.navBarContent');
+})->name('home')->middleware('auth');
+
+Route::get('/headerHomeContent', function() {
+    return view('admin.content.headerHomeContent');
+})->name('home')->middleware('auth');
+
+Route::get('/headerContactContent', function() {
+    return view('admin.content.headerContactContent');
+})->name('home')->middleware('auth');
+
+Route::get('/aboutContent', function() {
+    return view('admin.content.aboutContent');
+})->name('home')->middleware('auth');
+
+Route::get('/galleryContent', function() {
+    return view('admin.content.galleryContent');
+})->name('home')->middleware('auth');
+
+Route::get('/newsContent', function() {
+    return view('admin.content.newsContent');
+})->name('home')->middleware('auth');
+
+Route::get('/newsletterContent', function() {
+    return view('admin.content.newsletterContent');
+})->name('home')->middleware('auth');
+
+Route::get('/footerContent', function() {
+    return view('admin.content.footerContent');
+})->name('home')->middleware('auth');
+
+Route::get('/formContactContent', function() {
+    return view('admin.content.formContactContent');
+})->name('home')->middleware('auth');
+
+Route::get('/teachersContent', function() {
+    return view('admin.content.teachersContent');
+})->name('home')->middleware('auth');

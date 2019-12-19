@@ -3,9 +3,9 @@
 @section('title', 'AdminLTE')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>Bienvenue sur la plateforme Universe it</h1>
 @stop
 
 @section('content')
-    <p>You are logged in!</p>
+    <p>Vous êtes bien connecté !</p>
 @stop
