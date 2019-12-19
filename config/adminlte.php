@@ -239,6 +239,12 @@ return [
             'icon' => 'fas fa-fw fa-lock',
         ],
 
+        [
+            'text' => 'Nouveautés',
+            'url'  => '/events',
+            'icon' => 'fas fa-fw fa-lock',
+        ],
+
     ],
 
     /*
