@@ -11,10 +11,13 @@ const ContentArea = ({id}) =>  {
         axios.get(`/content/${id}`).then(response => {
             setItem(response.data);
             setText(response.data.content);
+            // console.log(response.data.content);
+            
         })
     },[]);
 
     const handleChange = (e) => {
+        console.log(text);
         setText(e.target.value)
     }
 
@@ -28,10 +31,11 @@ const ContentArea = ({id}) =>  {
         <div>
             {
                 item &&
-                <div>
-                    <p>{item.placement}</p>
-                    <textarea onChange={handleChange} className="form-link" type="text" name="" id="">{text}</textarea>
-                    <button onClick={handleClick} className="btn btn-primary">Edit</button>
+                
+                <div className='container'>
+                    <label>{item.placement}</label>
+                    <textarea onChange={handleChange} className="form-control" value={text}></textarea>
+                    <button class="btn btn-primary mt-2" onClick={handleClick}>Valider</button>
                 </div>
                 
             }

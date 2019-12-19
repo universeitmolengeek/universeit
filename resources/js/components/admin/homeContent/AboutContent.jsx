@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Content from '../Content';
+import ContentArea from '../ContentArea';
 export const AboutContent = () => {
     return (
         <div>
@@ -12,10 +13,10 @@ export const AboutContent = () => {
                                 <Content id={10} />
                             </div>
                             <div className='my-4'>
-                                <Content id={11} />
+                                <ContentArea id={11} />
                             </div>
                             <div className='my-4'>
-                                <Content id={12} />
+                                <ContentArea id={12} />
                             </div>
                         </div>
                     </div>
