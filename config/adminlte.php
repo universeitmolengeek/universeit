@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Universe IT',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -30,8 +30,8 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>Universe</b>IT',
+    'logo_img' => 'img/logoUniverseIt.png',
     'logo_img_class' => 'brand-image-xl',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -174,84 +174,71 @@ return [
 
     'menu' => [
         [
-            'text' => 'search',
-            'search' => true,
-            'topnav' => true,
-        ],
-        [
             'text' => 'blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
+        ['header' => 'Contenu DuSite'],
+
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
+            'text' => 'Barre de navigation',
+            'url'  => 'navBarContent',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
+            'text' => 'Header de la section Home',
+            'url'  => 'headerHomeContent',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+
+        [
+            'text' => 'Header de la section Contact',
+            'url'  => 'headerContactContent',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+
+        [
+            'text' => 'Contenu Galerie',
+            'url'  => 'galleryContent',
             'icon' => 'fas fa-fw fa-lock',
         ],
+
         [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
+            'text' => 'Contenu Présentation',
+            'url'  => 'aboutContent',
+            'icon' => 'fas fa-fw fa-lock',
         ],
-        ['header' => 'labels'],
+
         [
-            'text'       => 'important',
-            'icon_color' => 'red',
+            'text' => 'Contenu Nouveautés',
+            'url'  => 'newsContent',
+            'icon' => 'fas fa-fw fa-lock',
         ],
+
         [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
+            'text' => 'Contenu Newsletter',
+            'url'  => 'newsletterContent',
+            'icon' => 'fas fa-fw fa-lock',
         ],
+
         [
-            'text'       => 'information',
-            'icon_color' => 'aqua',
+            'text' => 'Contenu Footer',
+            'url'  => 'footerContent',
+            'icon' => 'fas fa-fw fa-lock',
         ],
+
+        [
+            'text' => 'Contenu Formulaire contact',
+            'url'  => 'formContactContent',
+            'icon' => 'fas fa-fw fa-lock',
+        ],
+
+        [
+            'text' => 'Contenu Professeur',
+            'url'  => 'teachersContent',
+            'icon' => 'fas fa-fw fa-lock',
+        ],
+
     ],
 
     /*

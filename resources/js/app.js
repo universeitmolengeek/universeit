@@ -14,3 +14,15 @@
 
 require('./components/Home');
 require('./components/Contact');
+
+// Admin
+require('./components/admin/shareContent/NavBarContent');
+require('./components/admin/homeContent/HeaderHomeContent');
+require('./components/admin/contactContent/HeaderContactContent');
+require('./components/admin/homeContent/AboutContent')
+require('./components/admin/homeContent/GalleryContent');
+require('./components/admin/homeContent/NewsContent');
+require('./components/admin/shareContent/NewsletterContent');
+require('./components/admin/shareContent/FooterContent');
+require('./components/admin/contactContent/FormContactContent');
+require('./components/admin/contactContent/TeachersContent');
