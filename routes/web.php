@@ -107,3 +107,11 @@ Route::get('/teachersContent', function() {
 Route::resource('/news', 'NewsItemController');
 Route::get('/api/news', 'NewsItemController@fetch');
 Route::get('/api/news/{news}', 'NewsItemController@showFetch');
+
+
+Route::resource('/events','EventController');
+
+Route::get('/api/events','EventController@fetch');
+
+
+Route::get('/api/events/{event}','EventController@showEvent');

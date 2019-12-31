@@ -99,6 +99,7 @@ class ContentController extends Controller
         $content->content = request('content');
 
         $content->save();
+                
     }
 
 }
