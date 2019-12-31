@@ -16,13 +16,13 @@ export const About = () =>{
     
     return(
         <div>
-           { !loader &&(<section class="info-area pb-120 mt-5 d-flex align-items-center" id="sectionAbout">
-                <div class="container-fluid">
-                    <div class="row align-items-center">
-                        <div class="col-lg-6 no-padding info-area-left">
-                            <img class="img-fluid" src="img/about-img.jpg" alt=""/>
+           { !loader &&(<section className="info-area pb-120 mt-5 d-flex align-items-center" id="sectionAbout">
+                <div className="container-fluid">
+                    <div className="row align-items-center">
+                        <div className="col-lg-6 no-padding info-area-left">
+                            <img className="img-fluid" src="img/about-img.jpg" alt=""/>
                         </div>
-                        <div class="col-lg-6 info-area-right">
+                        <div className="col-lg-6 info-area-right">
                             <h1>{aboutItems[0].content}</h1>
                             <p>{aboutItems[1].content}</p>
                             <br/>

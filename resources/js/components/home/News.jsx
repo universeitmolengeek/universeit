@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { NewsItem } from './NewsItem';
+
+import OwlCarousel from 'react-owl-carousel';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
 
 export const News = () => {
 
@@ -7,10 +12,17 @@ export const News = () => {
 
     const [loader, setLoader] = useState(true);
 
+    const [newsItems, setNewsItems] = useState();
+
     useEffect(() => {
 
         axios.get('/subtitleNews').then(response => {
             setSubTitleNews(response.data);
+            setLoader(false);
+        })
+        axios.get('/api/news').then(response => {
+            setNewsItems(response.data);
+            // console.log(response.data.slice(-1,2))
             setLoader(false);
         })
 
@@ -19,106 +31,41 @@ export const News = () => {
 
     return (
         <div>{
-            
-            <section class="popular-course-area section-gap d-flex align-items-center" id="sectionNews">
-                <div class="container">
-                    <div class="row d-flex justify-content-center">
-                        <div class="menu-content pb-70 col-lg-8">
-                            <div class="title text-center">
-                                <h1 class="mb-10">{!loader && subTitleNews.content}</h1>
+            <section className="popular-course-area section-gap d-flex align-items-center" id="sectionNews">
+                <div className="container">
+                    <div className="row d-flex justify-content-center">
+                        <div className="menu-content pb-70 col-lg-8">
+                            <div className="title text-center">
+                                <h1 className="mb-10">{!loader && subTitleNews.content}</h1>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="active-popular-carusel">
-                            <div class="single-popular-carusel">
-                                <div class="details">
-                                    <a href="#">
-                                        <h4>
-                                            Learn Designing
-                                    </h4>
-                                    </a>
-                                    <p>
-                                        When television was young, there was a hugely popular show based on the still popular fictional characte
-                                </p>
-                                </div>
-                            </div>
-                            <div class="single-popular-carusel">
-                                <div class="details">
-                                    <a href="#">
-                                        <h4>
-                                            Learn Designing
-                                    </h4>
-                                    </a>
-                                    <p>
-                                        When television was young, there was a hugely popular show based on the still popular fictional characte
-                                </p>
-                                </div>
-                            </div>
-                            <div class="single-popular-carusel">
-                                <div class="details">
-                                    <a href="#">
-                                        <h4>
-                                            Learn Designing
-                                    </h4>
-                                    </a>
-                                    <p>
-                                        When television was young, there was a hugely popular show based on the still popular fictional characte
-                                </p>
-                                </div>
-                            </div>
-                            <div class="single-popular-carusel">
-                                <div class="details">
-                                    <a href="#">
-                                        <h4>
-                                            Learn Designing
-                                    </h4>
-                                    </a>
-                                    <p>
-                                        When television was young, there was a hugely popular show based on the still popular fictional characte
-                                </p>
-                                </div>
-                            </div>
-                            <div class="single-popular-carusel">
-                                <div class="details">
-                                    <a href="#">
-                                        <h4>
-                                            Learn Designing
-                                    </h4>
-                                    </a>
-                                    <p>
-                                        When television was young, there was a hugely popular show based on the still popular fictional characte
-                                </p>
-                                </div>
-                            </div>
-                            <div class="single-popular-carusel">
-                                <div class="details">
-                                    <a href="#">
-                                        <h4>
-                                            Learn Designing
-                                    </h4>
-                                    </a>
-                                    <p>
-                                        When television was young, there was a hugely popular show based on the still popular fictional characte
-                                </p>
-                                </div>
-                            </div>
-                            <div class="single-popular-carusel">
-                                <div class="details">
-                                    <a href="#">
-                                        <h4>
-                                            Learn Designing
-                                    </h4>
-                                    </a>
-                                    <p>
-                                        When television was young, there was a hugely popular show based on the still popular fictional characte
-                                </p>
-                                </div>
-                            </div>
+
+                    {(!loader && newsItems) &&
+                    
+                        <div className="row">
+                        
+                            <OwlCarousel className="owl-theme" dotClass='bg-warning mx-2 p-1'>
+                                {
+                                    newsItems.map((newsItems, index) => {
+                                        return (
+                                            <div key={index}>
+                                                <h4 className="item">{newsItems.title}</h4>
+                                                <p className='item'>{newsItems.description}</p>
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </OwlCarousel>
                         </div>
-                    </div>
+                    }
                 </div>
+                <div>
+
+                </div>
+
             </section>
+
         }
         </div>
     )
