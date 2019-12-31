@@ -4,28 +4,28 @@ import {GalleryItem} from './GalleryItem'
 export const Gallery = () =>{
     return(
         <div>
-             <section class="gallery-area section-gap" id="sectionGallery">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
+             <section className="gallery-area section-gap" id="sectionGallery">
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-6">
                         <GalleryItem />
                     </div>
-                    <div class="col-lg-6">
+                    <div className="col-lg-6">
                         <GalleryItem />
                     </div>
-                    <div class="col-lg-4">
+                    <div className="col-lg-4">
                         <GalleryItem />
                     </div>
-                    <div class="col-lg-4">
+                    <div className="col-lg-4">
                         <GalleryItem />
                     </div>
-                    <div class="col-lg-4">
+                    <div className="col-lg-4">
                         <GalleryItem />
                     </div>
-                    <div class="col-lg-6">
+                    <div className="col-lg-6">
                         <GalleryItem />
                     </div>
-                    <div class="col-lg-6">
+                    <div className="col-lg-6">
                         <GalleryItem />
                     </div>
                 </div>

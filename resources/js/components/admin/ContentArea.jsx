@@ -11,7 +11,6 @@ const ContentArea = ({id}) =>  {
         axios.get(`/content/${id}`).then(response => {
             setItem(response.data);
             setText(response.data.content);
-            // console.log(response.data.content);
             
         })
     },[]);

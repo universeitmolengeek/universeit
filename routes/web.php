@@ -101,3 +101,9 @@ Route::get('/formContactContent', function() {
 Route::get('/teachersContent', function() {
     return view('admin.content.teachersContent');
 })->name('home')->middleware('auth');
+
+
+
+Route::resource('/news', 'NewsItemController');
+Route::get('/api/news', 'NewsItemController@fetch');
+Route::get('/api/news/{news}', 'NewsItemController@showFetch');

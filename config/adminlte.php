@@ -240,8 +240,14 @@ return [
         ],
 
         [
-            'text' => 'Nouveautés',
+            'text' => 'Evenements',
             'url'  => '/events',
+            'icon' => 'fas fa-fw fa-lock',
+        ],
+
+        [
+            'text' => 'Nouveautés',
+            'url'  => '/news',
             'icon' => 'fas fa-fw fa-lock',
         ],
 
