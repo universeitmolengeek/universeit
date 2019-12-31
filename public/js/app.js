@@ -47053,13 +47053,13 @@ __webpack_require__(/*! ./components/admin/contactContent/FormContactContent */ 
 
 __webpack_require__(/*! ./components/admin/contactContent/TeachersContent */ "./resources/js/components/admin/contactContent/TeachersContent.jsx");
 
-__webpack_require__(/*! ./components/admin/newsCrud/News */ "./resources/js/components/admin/newsCrud/News.jsx");
-
-__webpack_require__(/*! ./components/admin/newsCrud/NewsItem */ "./resources/js/components/admin/newsCrud/NewsItem.jsx");
-
 __webpack_require__(/*! ./components/admin/events/Events */ "./resources/js/components/admin/events/Events.jsx");
 
 __webpack_require__(/*! ./components/admin/events/Event */ "./resources/js/components/admin/events/Event.jsx");
+
+__webpack_require__(/*! ./components/admin/newsCrud/News */ "./resources/js/components/admin/newsCrud/News.jsx");
+
+__webpack_require__(/*! ./components/admin/newsCrud/NewsItem */ "./resources/js/components/admin/newsCrud/NewsItem.jsx");
 
 /***/ }),
 
@@ -49644,8 +49644,8 @@ var NewsItem = function NewsItem() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/ryan/Code/Stage/laravel/universit/universeit/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/ryan/Code/Stage/laravel/universit/universeit/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Applications/MAMP/htdocs/dossierLaravel/universeIT/universeIT/universeit/universeit/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/dossierLaravel/universeIT/universeIT/universeit/universeit/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
