@@ -101,3 +101,10 @@ Route::get('/formContactContent', function() {
 Route::get('/teachersContent', function() {
     return view('admin.content.teachersContent');
 })->name('home')->middleware('auth');
+
+Route::resource('/events','EventController');
+
+Route::get('/api/events','EventController@fetch');
+
+
+Route::get('/api/events/{event}','EventController@showEvent');

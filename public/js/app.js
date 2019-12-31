@@ -39425,6 +39425,10 @@ __webpack_require__(/*! ./components/admin/contactContent/FormContactContent */ 
 
 __webpack_require__(/*! ./components/admin/contactContent/TeachersContent */ "./resources/js/components/admin/contactContent/TeachersContent.jsx");
 
+__webpack_require__(/*! ./components/admin/events/Events */ "./resources/js/components/admin/events/Events.jsx");
+
+__webpack_require__(/*! ./components/admin/events/Event */ "./resources/js/components/admin/events/Event.jsx");
+
 /***/ }),
 
 /***/ "./resources/js/components/Contact.jsx":
@@ -39821,6 +39825,433 @@ var TeachersContent = function TeachersContent() {
 
 if (document.getElementById('teachersContent')) {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(TeachersContent, null), document.getElementById('teachersContent'));
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/events/Event.jsx":
+/*!********************************************************!*\
+  !*** ./resources/js/components/admin/events/Event.jsx ***!
+  \********************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+var Event = function Event() {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true),
+      _useState2 = _slicedToArray(_useState, 2),
+      loader = _useState2[0],
+      setLoader = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState4 = _slicedToArray(_useState3, 2),
+      event = _useState4[0],
+      setEvent = _useState4[1];
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("/api".concat(window.location.pathname)).then(function (response) {
+      setEvent(response.data);
+      setLoader(false);
+    });
+  }, []);
+
+  var deleteEvent = function deleteEvent() {
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a["delete"](window.location.pathname).then;
+  };
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, !loader && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Titre: ", event.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Lieu: ", event.place), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Th\xE8me: ", event.theme), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "D\xE9but:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Date: ", new Date(event.start).toLocaleDateString('fr-FR', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Heure: ", new Date(event.start).toLocaleTimeString([], {
+    hour: '2-digit',
+    minute: '2-digit'
+  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Fin:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Date: ", new Date(event.end).toLocaleDateString('fr-FR', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Heure: ", new Date(event.end).toLocaleTimeString([], {
+    hour: '2-digit',
+    minute: '2-digit'
+  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    htmlFor: ""
+  }, "Description:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, event.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "/events",
+    onClick: deleteEvent,
+    className: "btn btn-danger"
+  }, "Supprimer")));
+};
+
+if (document.getElementById('event')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Event, null), document.getElementById('event'));
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/events/Events.jsx":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/admin/events/Events.jsx ***!
+  \*********************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_calendar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-calendar */ "./node_modules/react-calendar/dist/entry.js");
+/* harmony import */ var react_calendar__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_calendar__WEBPACK_IMPORTED_MODULE_3__);
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+var Events = function Events() {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(new Date()),
+      _useState2 = _slicedToArray(_useState, 2),
+      date = _useState2[0],
+      setDate = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true),
+      _useState4 = _slicedToArray(_useState3, 2),
+      loader = _useState4[0],
+      setLoader = _useState4[1];
+
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState6 = _slicedToArray(_useState5, 2),
+      events = _useState6[0],
+      setEvents = _useState6[1];
+
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState8 = _slicedToArray(_useState7, 2),
+      id = _useState8[0],
+      setId = _useState8[1];
+
+  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState10 = _slicedToArray(_useState9, 2),
+      errors = _useState10[0],
+      setErrors = _useState10[1];
+
+  var _useState11 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    startDate: "",
+    startTime: "",
+    endDate: "",
+    endTime: "",
+    title: "",
+    theme: "",
+    place: "",
+    description: ""
+  }),
+      _useState12 = _slicedToArray(_useState11, 2),
+      inputs = _useState12[0],
+      setInputs = _useState12[1];
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/api/events').then(function (response) {
+      setEvents(response.data);
+
+      if (response.data.length == 0) {
+        setId(1);
+      } else {
+        setId(response.data[response.data.length - 1].id + 1);
+      }
+
+      setLoader(false);
+    });
+  }, []);
+
+  var changeDate = function changeDate(date) {
+    setDate(date);
+  };
+
+  var handleClick = function handleClick(e) {
+    var filter = events.filter(function (event) {
+      return event.id != e.target.value;
+    });
+    setEvents(filter);
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a["delete"]("/events/".concat(e.target.value)).then();
+  };
+
+  var changeTitle = function changeTitle(e) {
+    setInputs(_objectSpread({}, inputs, {
+      title: e.target.value
+    }));
+  };
+
+  var changeTheme = function changeTheme(e) {
+    setInputs(_objectSpread({}, inputs, {
+      theme: e.target.value
+    }));
+  };
+
+  var changePlace = function changePlace(e) {
+    setInputs(_objectSpread({}, inputs, {
+      place: e.target.value
+    }));
+  };
+
+  var changeDescription = function changeDescription(e) {
+    setInputs(_objectSpread({}, inputs, {
+      description: e.target.value
+    }));
+  };
+
+  var changeStartDate = function changeStartDate(e) {
+    setInputs(_objectSpread({}, inputs, {
+      startDate: e.target.value
+    }));
+  };
+
+  var changeStartTime = function changeStartTime(e) {
+    setInputs(_objectSpread({}, inputs, {
+      startTime: e.target.value
+    }));
+  };
+
+  var changeEndDate = function changeEndDate(e) {
+    setInputs(_objectSpread({}, inputs, {
+      endDate: e.target.value
+    }));
+  };
+
+  var changeEndTime = function changeEndTime(e) {
+    setInputs(_objectSpread({}, inputs, {
+      endTime: e.target.value
+    }));
+  };
+
+  var postEvent = function postEvent() {
+    var data = inputs;
+    data.start = "".concat(inputs.startDate, " ").concat(inputs.startTime, ":00");
+    data.end = "".concat(inputs.endDate, " ").concat(inputs.endTime, ":00");
+    data.id = id;
+    console.log(data);
+
+    if (data.startDate && data.startTime && data.endDate && data.endTime) {
+      if (new Date(data.start) > new Date(data.end)) {
+        setErrors(["La date de fin est avant la date de début"]);
+      } else if (new Date(data.start).getTime() == new Date(data.end).getTime()) {
+        setErrors(["L'événement débute et termine au même moment"]);
+      } else if (new Date(data.start).getTime() < new Date().getTime()) {
+        setErrors(["La date de début est déja passé"]);
+      } else {
+        axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/events', data).then(function () {
+          setEvents([].concat(_toConsumableArray(events), [data]));
+          setInputs({
+            startDate: "",
+            startTime: "",
+            endDate: "",
+            endTime: "",
+            title: "",
+            theme: "",
+            place: "",
+            description: ""
+          });
+          setId(id + 1);
+        })["catch"](function (error) {
+          var tab = [];
+          Object.entries(error.response.data.errors).forEach(function (error) {
+            tab.push(error[1][0]);
+          });
+          setErrors(tab);
+        });
+      }
+    } else {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/events', data).then()["catch"](function (error) {
+        if (error.response.data.errors) {
+          var tab = [];
+          Object.entries(error.response.data.errors).forEach(function (element) {
+            tab.push(element[1][0]);
+          });
+          setErrors(tab);
+        }
+      });
+    }
+  };
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row"
+  }, !loader && events.length !== 0 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-6"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_calendar__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    className: "m-5",
+    value: date,
+    tileClassName: function tileClassName(_ref) {
+      var date = _ref.date,
+          view = _ref.view;
+      return view === 'month' && events.find(function (element) {
+        return new Date(element.start).getDate() === date.getDate() && new Date(element.start).getMonth() === date.getMonth() && new Date(element.start).getYear() === date.getYear();
+      }) ? 'bg-success' : null;
+    },
+    onChange: changeDate,
+    activeStartDate: new Date()
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "\xC9v\xE9nements:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, events.find(function (element) {
+    return new Date(element.start).getDate() === date.getDate() && new Date(element.start).getMonth() === date.getMonth() && new Date(element.start).getYear() === date.getYear();
+  }) ? events.map(function (event) {
+    if (new Date(event.start).getDate() === date.getDate() && new Date(event.start).getMonth() === date.getMonth() && new Date(event.start).getYear() === date.getYear()) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        key: event.id
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, event.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "/events/".concat(event.id),
+        className: "btn btn-primary"
+      }, "Voir"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick(e) {
+          return handleClick(e);
+        },
+        value: event.id,
+        className: "btn btn-danger"
+      }, "Supprimer"));
+    }
+  }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Pas d'\xE9v\xE9nement ajd"))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-6"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_calendar__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    className: "m-5",
+    value: date
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Aucun \xC9v\xE9nement")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-6"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    className: "text-center"
+  }, "Ajouter \xC9v\xE9nement"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row p-3"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-6 d-flex flex-column align-items-center"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    htmlFor: ""
+  }, "Date de d\xE9but:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: function onChange(e) {
+      return changeStartDate(e);
+    },
+    value: inputs.startDate,
+    className: "m-2",
+    type: "date"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    htmlFor: ""
+  }, "Heure de d\xE9but:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: function onChange(e) {
+      return changeStartTime(e);
+    },
+    value: inputs.startTime,
+    className: "m-2",
+    type: "time"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    htmlFor: ""
+  }, "Date de fin:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: function onChange(e) {
+      return changeEndDate(e);
+    },
+    value: inputs.endDate,
+    className: "m-2",
+    type: "date"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    htmlFor: ""
+  }, "Heure de fin:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: function onChange(e) {
+      return changeEndTime(e);
+    },
+    value: inputs.endTime,
+    className: "m-2",
+    type: "time"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: postEvent,
+    className: "btn btn-success my-3"
+  }, "Ajouter")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-6 d-flex flex-column align-items-center"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    htmlFor: ""
+  }, "Titre:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: function onChange(e) {
+      return changeTitle(e);
+    },
+    value: inputs.title,
+    className: "m-2",
+    type: "text"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    htmlFor: ""
+  }, "Theme:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: function onChange(e) {
+      return changeTheme(e);
+    },
+    value: inputs.theme,
+    className: "m-2",
+    type: "text"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    htmlFor: ""
+  }, "Lieu:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: function onChange(e) {
+      return changePlace(e);
+    },
+    value: inputs.place,
+    className: "m-2",
+    type: "text"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    htmlFor: ""
+  }, "Description:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+    onChange: function onChange(e) {
+      return changeDescription(e);
+    },
+    value: inputs.description,
+    cols: "30",
+    rows: "5"
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "text-center"
+  }, errors && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    className: "alert alert-danger"
+  }, errors.map(function (error, index) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      key: index
+    }, error);
+  })))))));
+};
+
+if (document.getElementById('events')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Events, null), document.getElementById('events'));
 }
 
 /***/ }),
@@ -40965,6 +41396,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_calendar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-calendar */ "./node_modules/react-calendar/dist/entry.js");
 /* harmony import */ var react_calendar__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_calendar__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
@@ -40974,7 +41407,8 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
- // import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css'
+
+
 
 var Event = function Event() {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(new Date()),
@@ -40982,20 +41416,114 @@ var Event = function Event() {
       date = _useState2[0],
       setDate = _useState2[1];
 
-  var dates = [new Date('December 18, 2019'), new Date('December 12, 2019'), new Date('December 10, 2019'), new Date('December 25, 2019')];
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "container mt-5"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true),
+      _useState4 = _slicedToArray(_useState3, 2),
+      loader = _useState4[0],
+      setLoader = _useState4[1];
+
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState6 = _slicedToArray(_useState5, 2),
+      events = _useState6[0],
+      setEvents = _useState6[1];
+
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState8 = _slicedToArray(_useState7, 2),
+      event = _useState8[0],
+      setEvent = _useState8[1];
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/api/events').then(function (response) {
+      setEvents(response.data);
+      setLoader(false);
+    });
+  }, []);
+
+  var changeDate = function changeDate(date) {
+    setDate(date);
+  };
+
+  var handleClick = function handleClick(e, id) {
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("api/events/".concat(id)).then(function (response) {
+      setEvent(response.data);
+    });
+  };
+
+  var exit = function exit() {
+    setEvent();
+  };
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, !loader && events.length !== 0 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-lg-6"
+    className: "col-6 p-0 d-flex justify-content-center"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_calendar__WEBPACK_IMPORTED_MODULE_1___default.a, {
-    value: date // className={}
-    // tileClassName={({ date, view }) =>view === 'month' && dates.find( element => element.getDate()=== date.getDate() && element.getMonth) ? 'bg-success' : null}
-
+    className: "mt-5",
+    value: date,
+    tileClassName: function tileClassName(_ref) {
+      var date = _ref.date,
+          view = _ref.view;
+      return view === 'month' && events.find(function (element) {
+        return new Date(element.start).getDate() === date.getDate() && new Date(element.start).getMonth() === date.getMonth() && new Date(element.start).getYear() === date.getYear();
+      }) ? 'bg-success' : null;
+    },
+    onChange: changeDate,
+    activeStartDate: new Date()
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-lg-6"
-  })));
+    className: "col-6 p-0 d-flex flex-column align-items-center"
+  }, event ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: exit,
+    type: "submit",
+    "class": "close bg-danger p-2",
+    "aria-label": "Close"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    "aria-hidden": "true"
+  }, "\xD7")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    className: "mt-5"
+  }, "\xC9v\xE9nement:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Titre: ", event.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Lieu: ", event.place), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Th\xE8me: ", event.theme), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "D\xE9but:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Date: ", new Date(event.start).toLocaleDateString('fr-FR', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Heure: ", new Date(event.start).toLocaleTimeString([], {
+    hour: '2-digit',
+    minute: '2-digit'
+  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Fin:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Date: ", new Date(event.end).toLocaleDateString('fr-FR', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Heure: ", new Date(event.end).toLocaleTimeString([], {
+    hour: '2-digit',
+    minute: '2-digit'
+  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    htmlFor: ""
+  }, "Description:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, event.description)) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    className: "mt-5"
+  }, "\xC9v\xE9nements:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, events.find(function (element) {
+    return new Date(element.start).getDate() === date.getDate() && new Date(element.start).getMonth() === date.getMonth() && new Date(element.start).getYear() === date.getYear();
+  }) ? events.map(function (event) {
+    if (new Date(event.start).getDate() === date.getDate() && new Date(event.start).getMonth() === date.getMonth() && new Date(event.start).getYear() === date.getYear()) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        key: event.id
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, event.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick(e) {
+          return handleClick(e, event.id);
+        },
+        className: "btn btn-primary"
+      }, "Voir"));
+    }
+  }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Pas d'\xE9v\xE9nement ajd"))))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-6"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_calendar__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    className: "my-5",
+    value: date
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-6"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    className: "mt-5"
+  }, "Aucun \xC9v\xE9nement")))));
 };
 
 
@@ -41199,8 +41727,8 @@ var News = function News() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Applications/MAMP/htdocs/dossierLaravel/universeIT/universeIT/universeit/universeit/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/dossierLaravel/universeIT/universeIT/universeit/universeit/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/ryan/Code/Stage/laravel/universit/universeit/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/ryan/Code/Stage/laravel/universit/universeit/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
