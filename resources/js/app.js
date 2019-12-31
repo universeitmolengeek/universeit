@@ -26,6 +26,8 @@ require('./components/admin/shareContent/NewsletterContent');
 require('./components/admin/shareContent/FooterContent');
 require('./components/admin/contactContent/FormContactContent');
 require('./components/admin/contactContent/TeachersContent');
+require('./components/admin/events/Events');
+require('./components/admin/events/Event');
 
 
 require('./components/admin/newsCrud/News');
