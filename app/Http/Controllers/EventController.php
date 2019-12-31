@@ -13,8 +13,14 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {  
+        return view('admin.events.events');
+    }
+
+    public function fetch(){
+        $events = Event::all();  
+
+        return $events;
     }
 
     /**
@@ -22,10 +28,7 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+   
 
     /**
      * Store a newly created resource in storage.
@@ -33,9 +36,18 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request)    
     {
-        //
+        Event::create(request()->validate([
+            'title' => 'required',
+            'theme' => 'required',
+            'place' => 'required',
+            'description' => 'required',
+            'start' => 'required|date',
+            'end' => 'required|date',
+            'id' => 'required'            
+        ])     
+        );
     }
 
     /**
@@ -45,8 +57,14 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Event $event)
-    {
-        //
+    {            
+        return view('admin.events.event');
+    }
+
+    public function showEvent(Event $event)
+    {        
+       
+        return $event;
     }
 
     /**
@@ -80,6 +98,6 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        //
+        $event->delete();
     }
 }
