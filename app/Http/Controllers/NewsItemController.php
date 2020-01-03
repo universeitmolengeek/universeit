@@ -30,6 +30,8 @@ class NewsItemController extends Controller
         
         // return $reverse;
         $newsItems = News_item::all();
+        // $newsItems = News_item::all()->take(-12);
+        
         return $newsItems;
     }
 

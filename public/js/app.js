@@ -49082,11 +49082,25 @@ var MainBanner = function MainBanner(_ref) {
       loader = _useState4[0],
       setLoader = _useState4[1];
 
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true),
+      _useState6 = _slicedToArray(_useState5, 2),
+      loader1 = _useState6[0],
+      setLoader1 = _useState6[1];
+
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState8 = _slicedToArray(_useState7, 2),
+      navItems = _useState8[0],
+      setNavItems = _useState8[1];
+
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     if (mainBannerType === 1) {
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/bannerHome').then(function (response) {
         setBannerItems(response.data);
         setLoader(false);
+      });
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/nav').then(function (response) {
+        setNavItems(response.data);
+        setLoader1(false);
       });
     }
 
@@ -49097,7 +49111,7 @@ var MainBanner = function MainBanner(_ref) {
       });
     }
   }, []);
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, mainBannerType === 1 && !loader ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, mainBannerType === 1 && !loader && navItems ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
     className: "banner-area relative",
     id: "home"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -49111,7 +49125,7 @@ var MainBanner = function MainBanner(_ref) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     className: "text-uppercase text-mainBanner"
   }, bannerItems[0].content), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "#",
+    href: "/#".concat(navItems[3].content),
     className: "primary-btn text-uppercase mt-5 custom-btn-mainBanner p-4"
   }, " ", bannerItems[1].content))))) : null, mainBannerType === 2 && !loader ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
     className: "banner-area relative about-banner",
@@ -49262,15 +49276,24 @@ var About = function About() {
       loader = _useState4[0],
       setLoader = _useState4[1];
 
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState6 = _slicedToArray(_useState5, 2),
+      navItem = _useState6[0],
+      setNavItem = _useState6[1];
+
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/about').then(function (response) {
       setAboutItems(response.data);
       setLoader(false);
     });
+    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/nav').then(function (response) {
+      setNavItem(response.data);
+      setLoader(false);
+    });
   }, []);
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, !loader && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
-    className: "info-area pb-120 mt-5 d-flex align-items-center",
-    id: "sectionAbout"
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, !loader && navItem && aboutItems && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+    className: "info-area pb-120 pt-5 mt-5 d-flex align-items-center section-about",
+    id: navItem[3].content
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "container-fluid"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -49327,20 +49350,34 @@ var Event = function Event() {
       loader = _useState4[0],
       setLoader = _useState4[1];
 
-  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true),
       _useState6 = _slicedToArray(_useState5, 2),
-      events = _useState6[0],
-      setEvents = _useState6[1];
+      loader1 = _useState6[0],
+      setLoader1 = _useState6[1];
 
   var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
       _useState8 = _slicedToArray(_useState7, 2),
-      event = _useState8[0],
-      setEvent = _useState8[1];
+      events = _useState8[0],
+      setEvents = _useState8[1];
+
+  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState10 = _slicedToArray(_useState9, 2),
+      event = _useState10[0],
+      setEvent = _useState10[1];
+
+  var _useState11 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState12 = _slicedToArray(_useState11, 2),
+      navItems = _useState12[0],
+      setNavItems = _useState12[1];
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/api/events').then(function (response) {
       setEvents(response.data);
       setLoader(false);
+    });
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/nav').then(function (response) {
+      setNavItems(response.data);
+      setLoader1(false);
     });
   }, []);
 
@@ -49358,7 +49395,12 @@ var Event = function Event() {
     setEvent();
   };
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, !loader && events.length !== 0 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, !loader && navItems && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: navItems[5].content,
+    className: "padding-event"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, !loader && events.length !== 0 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-6 p-0 d-flex justify-content-center"
@@ -49418,8 +49460,10 @@ var Event = function Event() {
         className: "btn btn-primary"
       }, "Voir"));
     }
-  }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Pas d'\xE9v\xE9nement ajd"))))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "row"
+  }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Pas d'\xE9v\xE9nement ajd")))))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row m-0"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-6"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_calendar__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -49429,7 +49473,7 @@ var Event = function Event() {
     className: "col-6"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     className: "mt-5"
-  }, "Aucun \xC9v\xE9nement")))));
+  }, "Aucun \xC9v\xE9nement")))))));
 };
 
 
@@ -49449,14 +49493,43 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _GalleryItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GalleryItem */ "./resources/js/components/home/GalleryItem.jsx");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
 
 
 var Gallery = function Gallery() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
-    className: "gallery-area section-gap",
-    id: "sectionGallery"
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState2 = _slicedToArray(_useState, 2),
+      navItems = _useState2[0],
+      setNavItems = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true),
+      _useState4 = _slicedToArray(_useState3, 2),
+      loader = _useState4[0],
+      setLoader = _useState4[1];
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/nav').then(function (response) {
+      setNavItems(response.data);
+      setLoader(false);
+    });
+  }, []);
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, !loader && navItems && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "pt-5",
+    id: navItems[4].content
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+    className: "gallery-area section-gap pt-5 mt-5 gallery-section"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "container"
+    className: "container pt-5"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -49473,7 +49546,7 @@ var Gallery = function Gallery() {
     className: "col-lg-6"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_GalleryItem__WEBPACK_IMPORTED_MODULE_1__["GalleryItem"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-6"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_GalleryItem__WEBPACK_IMPORTED_MODULE_1__["GalleryItem"], null))))));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_GalleryItem__WEBPACK_IMPORTED_MODULE_1__["GalleryItem"], null)))))));
 };
 
 /***/ }),
@@ -49556,10 +49629,15 @@ var News = function News() {
       loader = _useState4[0],
       setLoader = _useState4[1];
 
-  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true),
       _useState6 = _slicedToArray(_useState5, 2),
-      newsItems = _useState6[0],
-      setNewsItems = _useState6[1];
+      loader1 = _useState6[0],
+      setLoader1 = _useState6[1];
+
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState8 = _slicedToArray(_useState7, 2),
+      newsItems = _useState8[0],
+      setNewsItems = _useState8[1];
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/subtitleNews').then(function (response) {
@@ -49567,9 +49645,8 @@ var News = function News() {
       setLoader(false);
     });
     axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/news').then(function (response) {
-      setNewsItems(response.data); // console.log(response.data.slice(-1,2))
-
-      setLoader(false);
+      setNewsItems(response.data.slice(response.data.length - 12, response.data.length).reverse());
+      setLoader1(false);
     });
   }, []);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
@@ -49585,7 +49662,7 @@ var News = function News() {
     className: "title text-center"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     className: "mb-10"
-  }, !loader && subTitleNews.content)))), !loader && newsItems && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, !loader && subTitleNews.content)))), !loader1 && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_owl_carousel__WEBPACK_IMPORTED_MODULE_3___default.a, {
     className: "owl-theme",

@@ -7,14 +7,21 @@ export const MainBanner = ({ mainBannerType }) => {
 
     const [loader, setLoader] = useState(true);
 
+    const [loader1, setLoader1] = useState(true);
+
+    const [navItems, setNavItems] = useState();
+
+
     useEffect(() => {
         if (mainBannerType === 1) {
             axios.get('/bannerHome').then(response => {
-
                 setBannerItems(response.data);
-
                 setLoader(false);
 
+            })
+            axios.get('/nav').then(response => {
+                setNavItems(response.data);
+                setLoader1(false);
             })
         }
         if (mainBannerType === 2) {
@@ -30,7 +37,7 @@ export const MainBanner = ({ mainBannerType }) => {
 
     return (
         <>
-            {mainBannerType === 1 && !loader ? (<section className="banner-area relative" id="home">
+            {mainBannerType === 1 && !loader && navItems ? (<section className="banner-area relative" id="home">
                 <div className="overlay overlay-bg custom-overlay"></div>
                 <div className="container">
                     <div className="row  custom-height-mainBanner d-flex align-items-center">
@@ -38,7 +45,7 @@ export const MainBanner = ({ mainBannerType }) => {
                             <h1 className="text-uppercase text-mainBanner">
                                 {bannerItems[0].content}
                             </h1>
-                            <a href="#" className="primary-btn text-uppercase mt-5 custom-btn-mainBanner p-4"> {bannerItems[1].content}</a>
+                            <a href={`/#${navItems[3].content}`} className="primary-btn text-uppercase mt-5 custom-btn-mainBanner p-4"> {bannerItems[1].content}</a>
                         </div>
                     </div>
                 </div>
