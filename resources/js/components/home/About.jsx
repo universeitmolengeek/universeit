@@ -5,18 +5,24 @@ export const About = () =>{
 
     const [aboutItems, setAboutItems] = useState();
     const [loader, setLoader] = useState(true);
+    const [navItem, setNavItem] = useState();
 
     useEffect(()=>{
         axios.get('/about').then(response=>{
             setAboutItems(response.data);
             setLoader(false);
+        });
+        axios.get('/nav').then(response=>{
+            setNavItem(response.data);
+            setLoader(false);
+            
         })
     },[])
 
     
     return(
         <div>
-           { !loader &&(<section className="info-area pb-120 mt-5 d-flex align-items-center" id="sectionAbout">
+           { (!loader && navItem && aboutItems)&&(<section className="info-area pb-120 pt-5 mt-5 d-flex align-items-center section-about" id={navItem[3].content}>
                 <div className="container-fluid">
                     <div className="row align-items-center">
                         <div className="col-lg-6 no-padding info-area-left">
