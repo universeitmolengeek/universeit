@@ -12,6 +12,8 @@ export const News = () => {
 
     const [loader, setLoader] = useState(true);
 
+    const [loader1, setLoader1] = useState(true);
+
     const [newsItems, setNewsItems] = useState();
 
     useEffect(() => {
@@ -19,11 +21,11 @@ export const News = () => {
         axios.get('/subtitleNews').then(response => {
             setSubTitleNews(response.data);
             setLoader(false);
+
         })
         axios.get('/api/news').then(response => {
-            setNewsItems(response.data);
-            // console.log(response.data.slice(-1,2))
-            setLoader(false);
+            setNewsItems(response.data.slice((response.data.length - 12), response.data.length).reverse());
+            setLoader1(false);
         })
 
 
@@ -41,7 +43,7 @@ export const News = () => {
                         </div>
                     </div>
 
-                    {(!loader && newsItems) &&
+                    {!loader1  &&
                     
                         <div className="row">
                         
