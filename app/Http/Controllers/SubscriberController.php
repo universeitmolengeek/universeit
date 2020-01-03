@@ -35,7 +35,10 @@ class SubscriberController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Subscriber::create(request()->validate([
+            'email' => 'required|email|unique:subscribers',                       
+        ])     
+        );
     }
 
     /**
