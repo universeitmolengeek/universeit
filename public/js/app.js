@@ -49385,10 +49385,8 @@ var Event = function Event() {
     setDate(date);
   };
 
-  var handleClick = function handleClick(e, id) {
-    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("api/events/".concat(id)).then(function (response) {
-      setEvent(response.data);
-    });
+  var handleClick = function handleClick(e, event) {
+    setEvent(event);
   };
 
   var exit = function exit() {
@@ -49418,16 +49416,28 @@ var Event = function Event() {
     activeStartDate: new Date()
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-6 p-0 d-flex flex-column align-items-center"
-  }, event ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }, event ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-header"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     onClick: exit,
     type: "submit",
-    "class": "close bg-danger p-2",
+    "class": "close text-danger",
     "aria-label": "Close"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     "aria-hidden": "true"
-  }, "\xD7")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-    className: "mt-5"
-  }, "\xC9v\xE9nement:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Titre: ", event.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Lieu: ", event.place), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Th\xE8me: ", event.theme), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "D\xE9but:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Date: ", new Date(event.start).toLocaleDateString('fr-FR', {
+  }, "\xD7"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-body"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    className: "my-1 card-title"
+  }, "\xC9v\xE9nement:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    className: "card-subtitle my-1"
+  }, "Titre: ", event.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+    className: "card-subtitle my-1"
+  }, "Lieu: ", event.place), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+    className: "card-subtitle my-1"
+  }, "Th\xE8me: ", event.theme), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "D\xE9but:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Date: ", new Date(event.start).toLocaleDateString('fr-FR', {
     weekday: 'long',
     year: 'numeric',
     month: 'long',
@@ -49445,20 +49455,27 @@ var Event = function Event() {
     minute: '2-digit'
   })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
     htmlFor: ""
-  }, "Description:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, event.description)) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+  }, "Description:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, event.description))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     className: "mt-5"
-  }, "\xC9v\xE9nements:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, events.find(function (element) {
+  }, "\xC9v\xE9nements:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    className: ""
+  }, events.find(function (element) {
     return new Date(element.start).getDate() === date.getDate() && new Date(element.start).getMonth() === date.getMonth() && new Date(element.start).getYear() === date.getYear();
   }) ? events.map(function (event) {
     if (new Date(event.start).getDate() === date.getDate() && new Date(event.start).getMonth() === date.getMonth() && new Date(event.start).getYear() === date.getYear()) {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "card mt-2",
         key: event.id
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "card-body"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: ""
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, event.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick(e) {
-          return handleClick(e, event.id);
+          return handleClick(e, event);
         },
         className: "btn btn-primary"
-      }, "Voir"));
+      }, "Voir"))));
     }
   }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Pas d'\xE9v\xE9nement ajd")))))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "container"
