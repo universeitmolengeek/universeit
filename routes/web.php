@@ -115,3 +115,5 @@ Route::get('/api/events','EventController@fetch');
 
 
 Route::get('/api/events/{event}','EventController@showEvent');
+
+Route::resource('/api/subscribers', 'SubscriberController');

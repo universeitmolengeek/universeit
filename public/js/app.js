@@ -48991,6 +48991,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var Newsletter = function Newsletter() {
+  var _React$createElement;
+
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
       _useState2 = _slicedToArray(_useState, 2),
       newsletterTitle = _useState2[0],
@@ -49001,12 +49003,42 @@ var Newsletter = function Newsletter() {
       loader = _useState4[0],
       setLoader = _useState4[1];
 
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""),
+      _useState6 = _slicedToArray(_useState5, 2),
+      email = _useState6[0],
+      setEmail = _useState6[1];
+
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState8 = _slicedToArray(_useState7, 2),
+      errors = _useState8[0],
+      setErrors = _useState8[1];
+
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/newsletter').then(function (response) {
       setNewsletterTitle(response.data);
       setLoader(false);
     });
   }, []);
+
+  var handleChange = function handleChange(e) {
+    setEmail(e.target.value);
+  };
+
+  var handleClick = function handleClick() {
+    axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("api/subscribers", {
+      email: email
+    }).then(function () {
+      setEmail('');
+      setErrors();
+    })["catch"](function (error) {
+      var tab = [];
+      Object.entries(error.response.data.errors).forEach(function (error) {
+        tab.push(error[1][0]);
+      });
+      setErrors(tab);
+    });
+  };
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, !loader && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
     className: "cta-two-area footer-newsletter"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -49017,13 +49049,9 @@ var Newsletter = function Newsletter() {
     className: "col-lg-8 cta-left"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, newsletterTitle[0].content)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-4 cta-right"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-    target: "_blank",
-    action: "https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&id=92a4423d01",
-    method: "get"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "input-group"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _defineProperty({
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", (_React$createElement = {
     type: "text",
     className: "form-control",
     name: "EMAIL",
@@ -49031,15 +49059,23 @@ var Newsletter = function Newsletter() {
     onFocus: "this.placeholder = ''",
     onBlur: "this.placeholder = 'Enter Email Address '",
     required: ""
-  }, "type", "email")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, _defineProperty(_React$createElement, "type", "email"), _defineProperty(_React$createElement, "value", email), _defineProperty(_React$createElement, "onChange", handleChange), _React$createElement)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "input-group-btn"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "btn btn-default",
-    type: "submit"
+    onClick: handleClick
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "lnr lnr-arrow-right"
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "info"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "text-center"
+  }, errors && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    className: "alert alert-danger"
+  }, errors.map(function (error, index) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      key: index
+    }, error);
   }))))))));
 };
 
@@ -49738,8 +49774,8 @@ var NewsItem = function NewsItem() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Applications/MAMP/htdocs/dossierLaravel/universeIT/universeIT/universeit/universeit/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/dossierLaravel/universeIT/universeIT/universeit/universeit/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/ryan/Code/Stage/laravel/universit/universeit/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/ryan/Code/Stage/laravel/universit/universeit/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

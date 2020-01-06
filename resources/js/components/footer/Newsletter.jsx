@@ -7,6 +7,10 @@ export const Newsletter = () => {
 
     const [loader, setLoader] = useState(true);
 
+    const [email, setEmail] = useState("");
+
+    const [errors, setErrors] = useState();
+
     useEffect(() => {
 
         axios.get('/newsletter').then(response => {
@@ -15,6 +19,24 @@ export const Newsletter = () => {
         })
 
     }, [])
+
+    const handleChange = (e) => {
+        setEmail(e.target.value);
+    }
+
+    const handleClick = () => {
+        axios.post("api/subscribers", {email: email}).then(()=>{
+            setEmail('');
+            setErrors();
+        })
+        .catch(error => { 
+            let tab = [];
+            Object.entries(error.response.data.errors).forEach(error=>{
+                tab.push(error[1][0]);
+            });
+            setErrors(tab);
+        })
+    }
 
     return (
         <div>{
@@ -26,18 +48,30 @@ export const Newsletter = () => {
                             <h1>{newsletterTitle[0].content}</h1>
                         </div>
                         <div className="col-lg-4 cta-right">
-                            <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get">
+                            
                                 <div className="input-group">
-                                    <input type="text" className="form-control" name="EMAIL" placeholder={newsletterTitle[1].content} onFocus="this.placeholder = ''" onBlur="this.placeholder = 'Enter Email Address '" required="" type="email" />
+                                    <input type="text" className="form-control" name="EMAIL" placeholder={newsletterTitle[1].content} onFocus="this.placeholder = ''" onBlur="this.placeholder = 'Enter Email Address '" required="" type="email" value={email} onChange={handleChange}/>
                                     <div className="input-group-btn">
-                                        <button className="btn btn-default" type="submit">
+                                        <button className="btn btn-default" onClick={handleClick}>
                                             <span className="lnr lnr-arrow-right"></span>
                                         </button>
                                     </div>
                                     <div className="info"></div>
                                 </div>
-                            </form>
-                        </div>
+                            
+                            <div className="text-center">                                   
+                                        {
+                                            errors && 
+                                            <ul className="alert alert-danger">
+                                                {
+                                                    errors.map((error, index) => {
+                                                        return <li key={index}>{error}</li>
+                                                    })
+                                                }
+                                            </ul>                                            
+                                        }                                    
+                                </div>
+                            </div>
                     </div>
                 </div>
             </section>
